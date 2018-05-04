@@ -106,7 +106,7 @@ describe('Profanity module', function () {
         it('works in obscure (default) mode on a simple string', function (done) {
             var result = profanity.purify('boob damn something poo');
 
-            result[0].should.equal('b**b d**n something p*o');
+            result[0].should.equal('**** **** something ***');
             result[1].should.eql(['boob', 'damn', 'poo']);
 
 
@@ -121,11 +121,11 @@ describe('Profanity module', function () {
 
             result[0].should.have.keys('bar', 'test');
             result[0].bar.should.have.keys('foo', 'bar');
-            result[0].bar.foo.should.equal('something b**b');
+            result[0].bar.foo.should.equal('something ****');
             result[0].bar.bar.should.have.keys('foo');
-            result[0].bar.bar.foo.should.equal('test p*o');
-            result[0].bar.foo.should.equal('something b**b');
-            result[0].test.should.equal('something d**n');
+            result[0].bar.bar.foo.should.equal('test ***');
+            result[0].bar.foo.should.equal('something ****');
+            result[0].test.should.equal('something ****');
 
             result[1].should.eql(['boob', 'poo', 'damn']);
 
@@ -136,7 +136,7 @@ describe('Profanity module', function () {
         it('works in obscure (default) mode on a simple string with substrings', function (done) {
             var result = profanity.purify('boob damn something poo grass5', {substrings: true});
 
-            result[0].should.equal('b**b d**n something p*o gra*s5');
+            result[0].should.equal('**** **** something *** gr***5');
             result[1].should.eql(['boob', 'damn', 'poo', 'ass']);
 
 
